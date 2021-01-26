@@ -7,18 +7,49 @@ export default function Main(){
   const [velocity, setVelocity] = useState('normal');
   
   function positionCar({ key}){
-    if(key=== 'a' || key === 'A'){
-      setPosition('Left')
-    }else if( key === 's' || key === 'S' ){
-      setPosition('Middle')
-    }else if(key === 'd' || key === 'D'){
-      setPosition('Right')
+    switch(key){
+      case 'a':
+      case 'A':
+        setPosition('Left');
+      break;
+      case 's':
+      case 'S':
+        setPosition('Middle');
+      break;
+      case 'd':
+      case 'D':
+        setPosition('Right');
+      break;
+      case 'ArrowLeft':
+        arrowKeyLeft()
+      break;
+      case 'ArrowRight':
+        arrowKeyRight()
+      break;      
     }
   }
 
+  function arrowKeyLeft(){
+    if(position === 'Middle'){
+      setPosition('Left');
+      return;
+    }
+    if(position === 'Right'){
+      setPosition('Middle');
+      return;
+    }
+  }
+
+  function arrowKeyRight(){
+    if(position === 'Middle'){
+      setPosition('Right');
+    }else if(position === "Left"){
+      setPosition('Middle');
+    }
+  }
   useEffect(()=> {
     window.addEventListener('keydown', positionCar);
-  },[])
+  },[position])
   return(
     <>
       <Background />
