@@ -16,7 +16,7 @@ export default function Home(){
   };
 
   function startGame(){
-    setVisible('visible')
+    setVisible( 'visible' )
     setCount(<Timer   countDown startTime={ 3 } />)
     setTimeout(function(){
       window.location.href ="http://localhost:3000/game"
