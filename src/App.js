@@ -1,13 +1,15 @@
 import React from 'react';
-import Main from './components/Main';
+import Routes from './routes.js';
 import './style.css';
+import GlobalFonts from './style/fonts';
 import GlobalStyle from './style/global';
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Main />
+      <GlobalFonts />
+      <Routes />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Background from '../Background';
-import CarBlue from '../CarBlue';
+import Background from '../../components/Background';
+import CarBlue from '../../components/CarBlue';
 
 export default function Main(){
   const [position, setPosition] = useState('Middle');
@@ -25,6 +25,8 @@ export default function Main(){
       break;
       case 'ArrowRight':
         arrowKeyRight()
+      break;
+      default:
       break;      
     }
   }
