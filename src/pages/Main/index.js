@@ -1,34 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import Background from '../../components/Background';
 import CarBlue from '../../components/CarBlue';
+import Laps from '../../components/Laps';
 
 export default function Main(){
   const [position, setPosition] = useState('Middle');
   const [velocity, setVelocity] = useState('normal');
+  const [gamePause, setGamePause] = useState(false)
   
-  function positionCar({ key}){
-    switch(key){
-      case 'a':
-      case 'A':
-        setPosition('Left');
-      break;
-      case 's':
-      case 'S':
-        setPosition('Middle');
-      break;
-      case 'd':
-      case 'D':
-        setPosition('Right');
-      break;
-      case 'ArrowLeft':
-        arrowKeyLeft()
-      break;
-      case 'ArrowRight':
-        arrowKeyRight()
-      break;
-      default:
-      break;      
-    }
+  const positionCar = (event) => {
+    let key = event.key
+      switch(key){
+        default:
+          break;      
+        case 'a':
+        case 'A':
+          setPosition('Left');
+        break;
+        case 's':
+        case 'S':
+          setPosition('Middle');
+        break;
+        case 'd':
+        case 'D':
+          setPosition('Right');
+        break;
+        case 'ArrowLeft':
+          arrowKeyLeft()
+        break;
+        case 'ArrowRight':
+          arrowKeyRight()
+        break;
+        case 'Escape':
+          setGamePause(true)
+          break;
+      }
   }
 
   function arrowKeyLeft(){
@@ -51,10 +57,14 @@ export default function Main(){
   }
   useEffect(()=> {
     window.addEventListener('keydown', positionCar);
-  },[position])
+    return () => {
+      window.removeEventListener('keydown', positionCar);
+    }
+  },[position, gamePause])
   return(
     <>
       <Background />
+      <Laps />
       <CarBlue position={position} fast={velocity} />
     </>
   );

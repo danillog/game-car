@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const CarImage = styled.img`
   position: absolute;
   transition: 0.5s;
@@ -16,8 +17,9 @@ export const CarImage = styled.img`
   }
   &.speedUp{
     top: 44%;
+    box-shadow:0 0 20px 0px #ffe00178;
   }
   &.normal{
-    top: 80%; 
+    top: 70%; 
   }
 `;

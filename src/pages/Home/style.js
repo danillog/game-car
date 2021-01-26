@@ -47,16 +47,18 @@ export const Box = styled.div`
   height: 147px;
   display:none;
 
+
   &.visible{
     display:block;
+    transition: 0.5s;
   }
   h4{
     color: white;
     font-size: xxx-large;
     font-family: '04b30';
     position: absolute;
-    top: 33%;
-    left: 16%;
+    top: 34%;
+    left: 15%;
   }
   h4 span{
     color: white !important;

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Timer from 'react.timer';
 import Background from '../../components/Background';
 import { Box, Form, Text, Title } from './style';
@@ -7,15 +7,16 @@ export default function Home(){
   const [nick, setNick] = useState('');
   const [input, setInput] = useState('');
   const [count, setCount] = useState('');
-  const [visible, setVisible] = useState('visible');
+  const [visible, setVisible] = useState();
  
-  const handleSubmit = useCallback(e => {
+  function handleSubmit(e){
     e.preventDefault();
     setNick(input);
     startGame();
-  },[input, nick]);
+  };
 
   function startGame(){
+    setVisible('visible')
     setCount(<Timer   countDown startTime={ 3 } />)
     setTimeout(function(){
       window.location.href ="http://localhost:3000/game"
