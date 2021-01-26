@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const CarImage = styled.img`
   position: absolute;
-  transition: cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: 0.5s;
+  box-shadow:8px 10px 15px 3px #00000078;
   
   &.Left{
     left: 23%;
