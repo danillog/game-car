@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Background from '../../components/Background';
-import { Text, Title } from './style';
+import { ButtonAgain, List, Text, Title } from './style';
 
 export default function GameOver(){
-  // const [nicks, setNicks] = useState([]);
+  const [nicks, setNicks] = useState([]);
 
 
-  // useEffect(() => {
-  //   localStorage.setItem('Nick', JSON.stringify(nick));
-  // },[nick]);
+  useEffect(() => {
+    const nickStorage = localStorage.getItem('Nick');
+    console.log(nickStorage)
+    if(nickStorage){
+      setNicks(JSON.parse(nickStorage));
+    }
+  },[]);
+  function playAgain(){
+    window.location.href ="http://localhost:3000/"
+  }
 
   return(
     <div>
       <Title> Game Car </Title>
       <Text> List of players  </Text>
-      <ul>
-        <li>
-          <h3> nome </h3>
-          <p> pontuação </p>
-        </li>
-      </ul>
+      <List>
+        {
+          nicks.map(nick =>(
+            <li key={nick.id} >
+              <h3> { nick } </h3>
+            </li>
+          ))
+        }
+      </List>
+      <ButtonAgain onClick={playAgain } >
+        Play Again
+      </ButtonAgain>
       <Background />
     </div>
   )

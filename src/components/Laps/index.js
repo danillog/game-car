@@ -15,7 +15,7 @@ export default function Laps(props){
       clearTimeout(lapTime)
     }    
     if(numLap === 8 ){
-      console.log('Fim de Jogo')
+      window.location.href ="http://localhost:3000/gameover"
     }
   })
 

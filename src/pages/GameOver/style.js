@@ -16,51 +16,28 @@ export const Text = styled.p`
   font-family: 'Minecraft', Arial, Helvetica, sans-serif;
   color: white;
   position: absolute;
-  top: 22%;
+  top: 29%;
   left: 27%;
   font-size: x-large;
   text-shadow: -2px 2px 3px #ff2f00;   
 `;
 
-export const Form = styled.form`
+export const List = styled.ul`
   position: absolute;
-  top: 30%;
-  left: 28%;
-  font-family:'Minecraft', Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-
-  button{
-    margin-top: 10px;
-    background-color: yellow;
-    font-family:'Minecraft', Arial, Helvetica, sans-serif;
-    padding: 5px;
-  }
+  color: white;
+  font-family: 'Minecraft', Arial, Helvetica, sans-serif;
+  font-size: medium;
+  top: 34%;
+  left: 38%;
+  list-style: none;
 `;
-export const Box = styled.div`
+export const ButtonAgain = styled.button`
+  margin-top: 10px;
+  background-color: yellow;
+  font-family:'Minecraft', Arial, Helvetica, sans-serif;
+  padding: 5px;
   position: absolute;
-  background-color: #ff2f00;
-  border-radius: 50%;
-  top: 50%;
-  left: 33%;
-  width: 147px;
-  height: 147px;
-  display:none;
-
-
-  &.visible{
-    display:block;
-    transition: 0.5s;
-  }
-  h4{
-    color: white;
-    font-size: xxx-large;
-    font-family: '04b30';
-    position: absolute;
-    top: 34%;
-    left: 15%;
-  }
-  h4 span{
-    color: white !important;
-  }
+  top: 21%;
+  left: 37%;
+}
 `;

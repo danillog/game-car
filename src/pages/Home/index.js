@@ -4,14 +4,14 @@ import Background from '../../components/Background';
 import { Box, Form, Text, Title } from './style';
 
 export default function Home(){
-  const [nick, setNick] = useState('');
+  const [nick, setNick] = useState([]);
   const [input, setInput] = useState('');
   const [count, setCount] = useState('');
   const [visible, setVisible] = useState();
  
   function handleSubmit(e){
     e.preventDefault();
-    setNick(input);
+    setNick([...nick, input]);
     startGame();
   };
 
@@ -23,11 +23,21 @@ export default function Home(){
     },3000)
 
   }
+  //buscando
+  useEffect(() => {
+    const nickStorage = localStorage.getItem('Nick');
+    console.log(nickStorage)
+    if(nickStorage){
+      setNick(JSON.parse(nickStorage));
+    }
+  },[]);
 
-
+  //salvando nick
   useEffect(() => {
     localStorage.setItem('Nick', JSON.stringify(nick));
   },[nick]);
+
+
 
   return(
     <div>
