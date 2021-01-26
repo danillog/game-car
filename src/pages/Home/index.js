@@ -34,7 +34,7 @@ export default function Home(){
       <Text> Enter your name  </Text>
       <Form onSubmit={handleSubmit}>  
         <input type="text" onChange={ e => setInput(e.target.value)} />
-        <button type="submit" > Start </button>
+        <button type="submit" > Start game </button>
       </Form>
       <Box className={visible}>
         <h4>{ count }</h4>
