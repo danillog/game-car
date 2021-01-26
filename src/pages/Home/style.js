@@ -34,6 +34,7 @@ export const Form = styled.form`
     margin-top: 10px;
     background-color: yellow;
     font-family:'Minecraft', Arial, Helvetica, sans-serif;
+    padding: 5px;
   }
 `;
 export const Box = styled.div`
@@ -55,6 +56,9 @@ export const Box = styled.div`
     font-family: '04b30';
     position: absolute;
     top: 33%;
-    left: 40%;
+    left: 16%;
+  }
+  h4 span{
+    color: white !important;
   }
 `;
