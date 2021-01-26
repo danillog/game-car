@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Background from '../../components/Background';
 import CarBlue from '../../components/CarBlue';
+import CarRed from '../../components/CarRed';
 import Laps from '../../components/Laps';
 import Pause from '../../components/Pause';
 
@@ -37,6 +38,12 @@ export default function Main(){
         break;
         case 'ArrowRight':
           arrowKeyRight()
+        break;
+        case 'ArrowUp':
+          setVelocity('speedUp');
+        break;
+        case 'ArrowDown':
+          setVelocity('normal');
         break;
         case 'Escape':
           setGamePause(true)
@@ -76,6 +83,7 @@ export default function Main(){
       <Background />
       <Laps pause={ gamePause } />
       <CarBlue position={position} fast={velocity} />
+      <CarRed />
     </>
   );
 }
