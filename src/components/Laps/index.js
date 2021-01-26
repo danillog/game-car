@@ -9,7 +9,7 @@ export default function Laps(props){
 
     let lapTime = setTimeout(()=>{
       setNumLap(numLap + 1);
-    },10000)
+    },5000)
 
     if(props.pause){
       clearTimeout(lapTime)
