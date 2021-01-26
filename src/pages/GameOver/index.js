@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Background from '../../components/Background';
 import { ButtonAgain, List, Text, Title } from './style';
 
 export default function GameOver(){
   const [nicks, setNicks] = useState([]);
-
+  const history = useHistory();
 
   useEffect(() => {
     const nickStorage = localStorage.getItem('Nick');
@@ -14,7 +15,7 @@ export default function GameOver(){
     }
   },[]);
   function playAgain(){
-    window.location.href ="http://localhost:3000/"
+    history.push("/")
   }
 
   return(

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Timer from 'react.timer';
 import Background from '../../components/Background';
 import { Box, Form, Text, Title } from './style';
 
-export default function Home(){
+
+export default function Home(props){
   const [nick, setNick] = useState([]);
   const [input, setInput] = useState('');
   const [count, setCount] = useState('');
   const [visible, setVisible] = useState();
- 
+  const history = useHistory();
+
   function handleSubmit(e){
     e.preventDefault();
     setNick([...nick, input]);
@@ -19,7 +22,8 @@ export default function Home(){
     setVisible( 'visible' )
     setCount(<Timer   countDown startTime={ 3 } />)
     setTimeout(function(){
-      window.location.href ="http://localhost:3000/game"
+      console.log("redireciona")
+      history.push("/game")
     },3000)
 
   }

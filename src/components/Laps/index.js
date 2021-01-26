@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Text } from './styled';
 
 export default function Laps(props){
   const [numLap, setNumLap] = useState(1);
-
+  const history = useHistory();
 
   useEffect(() =>{
 
@@ -15,7 +16,8 @@ export default function Laps(props){
       clearTimeout(lapTime)
     }    
     if(numLap === 8 ){
-      window.location.href ="http://localhost:3000/gameover"
+      
+      history.push("/gameover")
     }
   })
 
