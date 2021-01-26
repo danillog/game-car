@@ -2,14 +2,21 @@ import React, { useEffect, useState } from 'react';
 import Background from '../../components/Background';
 import CarBlue from '../../components/CarBlue';
 import Laps from '../../components/Laps';
+import Pause from '../../components/Pause';
 
 export default function Main(){
   const [position, setPosition] = useState('Middle');
   const [velocity, setVelocity] = useState('normal');
-  const [gamePause, setGamePause] = useState(false)
-  
+  const [gamePause, setGamePause] = useState(false);
+  const [gameClass, setGameClass] = useState('play');
+
   const positionCar = (event) => {
-    let key = event.key
+    let key = event.key;
+
+    if(gamePause && key==="Escape"){
+      setGamePause(false);
+      setGameClass('play');
+    }else if(!gamePause){
       switch(key){
         default:
           break;      
@@ -33,8 +40,10 @@ export default function Main(){
         break;
         case 'Escape':
           setGamePause(true)
+          setGameClass('pause')
           break;
       }
+    }
   }
 
   function arrowKeyLeft(){
@@ -60,11 +69,12 @@ export default function Main(){
     return () => {
       window.removeEventListener('keydown', positionCar);
     }
-  },[position, gamePause])
+  },[position, gamePause, gameClass])
   return(
     <>
+      <Pause pauseClass={ gameClass } />
       <Background />
-      <Laps />
+      <Laps pause={ gamePause } />
       <CarBlue position={position} fast={velocity} />
     </>
   );
