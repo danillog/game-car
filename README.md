@@ -13,7 +13,7 @@ Before downloading the files you have installed on your computer:
 
 ### Running the files
 
-After downloading the files, run the command `npm start` and the game will start at http://localhost:3000
+After downloading the files, run the command `npm start` and the game will start at http://localhost:3000/gamecar
 
 ### Instructions for playing this game
 `a`,` b` and `s` keys you can switch between the tracks of the game, as well as the direction arrows.
